@@ -1,0 +1,200 @@
+{% extends 'user/client/layout.html' %}
+{% block body %}
+<style>
+  button {
+ font-size: 10px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ display: inline-block;
+ text-align: center;
+ font-weight: bold;
+ padding: 0.7em 2em;
+ border: 3px solid #FF0072;
+ border-radius: 2px;
+ position: relative;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+ color: #FF0072;
+ text-decoration: none;
+ transition: 0.3s ease all;
+ z-index: 1;
+}
+
+button:before {
+ transition: 0.5s all ease;
+ position: absolute;
+ top: 0;
+ left: 50%;
+ right: 50%;
+ bottom: 0;
+ opacity: 0;
+ content: '';
+ background-color: #FF0072;
+ z-index: -1;
+}
+
+button:hover, button:focus {
+ color: white;
+}
+
+button:hover:before, button:focus:before {
+ transition: 0.5s all ease;
+ left: 0;
+ right: 0;
+ opacity: 1;
+}
+
+button:active {
+ transform: scale(0.9);
+}
+
+}
+</style>
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Data Tables</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Tables</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Data Tables</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight"  >
+        {% if session['final'] >0 %}
+        <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5></h5>
+                                <div class="ibox-tools">
+   
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                             <form  id="form" method="post" class="wizard-big" action="/user_service" >                              
+                                <fieldset>
+                                    <h2 style="font-weight: bold;">Request a Service</h2>
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                            <div class="form-group">
+                                                
+                                                <select name="service" id="" class="form-control required">
+
+                                                    <option value="Select service">Select service</option>
+                                                    {% for x in data %}
+                                                    <option value="{{x.service}}">{{x.service}}</option>
+                                                   {% endfor %}
+                                                </select>
+                                            </div>
+                                                 <div class="form-group">
+                                                <label>Date</label>
+                                                <input type="date" name="date" class="form-control required">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                       <div class="row">
+                                       <div class="col-lg-6">
+                                            <div class="form-group">
+                                                
+                                                <select name="slot" id="" class="form-control required">
+
+                                                    <option value="Select service">Select Slot</option>
+                                                     <option value="10am-12pm">10am-12pm</option>
+                                                    <option value="12pm-2am">12pm-2pm</option>
+                                                     <option value="2pm-4pm">2pm-4pm</option>
+                                                      <option value="4pm-6pm">4pm-6pm</option>
+                                                    
+                                                </select><br>
+                                                Detail
+                                            </div>
+                                                 <div class="form-group">
+                                               
+                                                <textarea style="width:100%" name="detail" id="" cols="30" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+
+
+                                                                           
+                                    </div>                                  
+                                    
+                                </div>
+                            </fieldset>                           
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                
+                              <button class="btn btn-primary btn-sm" type="submit" name="Submit">Add</button>
+                              
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+
+               <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5></h5>
+                                <div class="ibox-tools">
+   
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                             <form  id="form" method="post" class="wizard-big" action="/user_service" >                              
+                                <fieldset>
+                                    <h2 style="font-weight: bold;color: red;">Your plan expired!!</h2>
+                                    <br>
+                                    <div class="row">
+                                        <a href="/renew/{{session['id']}}">
+                                        <button  style="margin-left: 10px;" class="button" type="button" name="Submit">Renew</button>
+                                            </a>
+                                        </div>
+
+                                       <div class="row">
+                                      
+                                            
+                                        </div>
+
+
+
+                                                                           
+                                    </div>                                  
+                                    
+                                </div>
+                            </fieldset>                           
+                            <br>
+                            <div class="form-group row">
+                            <div class="col-sm-4 col-sm-offset-2">                                
+                             <button class="btn btn-primary btn-sm" type="submit" name="Submit">Back</button>
+                              
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    {% endblock %}

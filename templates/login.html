@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form-v10 by Colorlib</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- css -->
+<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet" />
+<link rel="stylesheet" href="{{url_for('static',filename='simple-line-icons/css/simple-line-icons.css')}}">
+<link href="{{url_for('static',filename='css/fancybox/jquery.fancybox.css')}}" rel="stylesheet"> 
+<link href="{{url_for('static',filename='css/flexslider.css')}}" rel="stylesheet" />
+<link href="{{url_for('static',filename='js/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" />
+
+
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='register_form/css/montserrat-font.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='register_form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='register_form/css/style.css')}}"/>
+<style>
+    
+</style>
+
+</head>
+<div id="wrapper" class="home-page">
+    <!-- start header -->
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{{url_for('static',filename='img/logo.png')}}" alt="logo"/></a>
+                </div>
+                <div class="navbar-collapse collapse " >
+                    <ul class="nav navbar-nav"  >
+                        <li  class="{% if pid==0 %} active {% endif %}"><a href="/">Home</a></li> 
+                        <li class="{% if pid==1 %} active {% endif %}"><a href="/about">About us</a></li>    
+                        <li><a href="/services">Services</a></li> 
+                        <li class="{% if pid==3 %} active {% endif %}"><a href="/enquiry">Enquiry</a></li>
+                        <li class="{% if pid==5 %} active {% endif %}"><a href="/career">Career</a></li>
+                        <li class="{% if pid==4 %} active {% endif %}"><a href="/contact">Contact</a></li>
+                        <li><a href="contact.html">Login</a></li>
+                        <li class="{% if pid==6 %} active {% endif %}"><a href="/register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    </div>
+<div class="form-v10">
+    <div class="page-content">
+        <div class="form-v10-content" style="width: 50%">
+            <form class="form-detail" action="" method="post" id="form" name="form">
+            
+                <div class="form-right" style="width: 100%;text-align: center;">
+                    <h2>Login</h2>
+                    <div class="form-row">
+                        <input type="text" name="email" class="street" id="street" placeholder="Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="pass" class="additional" id="additional" placeholder="Password" required>
+                    </div>
+            
+                    <div class="form-row-last">
+                        <input type="submit" name="login" class="register" value="Sign In">
+                    </div>
+
+                     <p align="center" style="font-weight: bold;color: black">New member &nbsp;<a href="/register">Register</a></p>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

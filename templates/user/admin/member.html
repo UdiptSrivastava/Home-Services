@@ -1,0 +1,142 @@
+{% extends 'user/admin/layout.html' %}
+{% block body %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Data Tables</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Tables</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Data Tables</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight"  >
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
+
+                  {% if li[0]=='1'or li[0]=='2' %} 
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Name</th>
+                                        <th>Email-Id</th>
+                                        <th>Contact</th> 
+                                        <th>Gender</th> 
+                                        <th>Role</th>
+                                        <th></th>   
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for x in data %}
+                                    <tr class="gradeX">
+                                        <td>{{x.sno}}</td>
+                                        <td>{{x.name}}</td>
+                                        <td>{{x.email}}</td>
+                                        <td class="center">{{x.contact}}</td>
+                                         <td class="center">{{x.gender}}</td>
+                                          <td class="center">{{x.status}}</td>
+                                       
+                                       
+                                         <td><a href="/member/{{0}},{{x.sno}}"><button class="btn btn-success " type="button"><i class="fa fa-eye"></i>&nbsp;Show</button></a></td>
+                                        
+                                     </td>
+                                 </tr>
+                                 {% endfor %}
+                             </tfoot>
+                         </table>                          
+                     </div>
+                 </div>
+
+             {% else %} 
+              
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5></h5>
+                                <div class="ibox-tools">
+   
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                             <form  id="form" method="post" class="wizard-big" action="/member/{{li[0]}},{{li[1]}}">                              
+                                <fieldset>
+                                    <h2 style="font-weight: bold;">Personal Details</h2>
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input id="name" name="name" type="text" class="form-control required"  value="{{li[1]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Contact</label>
+                                                <input id="contact" name="contact" type="text" class="form-control"  value="{{li[3]}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Email-Id</label>
+                                                <input id="email" name="email" type="text" class="form-control required"  value="{{li[2]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <input id="gen" name="gen" type="text" class="form-control"  value="{{li[4]}}">
+                                            </div>
+                                        </div>
+                                         <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Course</label>
+                                                <input id="course" name="course" type="text" class="form-control required"  value="{{li[5]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Bank</label>
+                                                <input id="bank" name="bank" type="text" class="form-control"  value="{{li[7]}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Demand Draft</label>
+                                                <input id="dd" name="dd" type="text" class="form-control required"  value="{{li[8]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Date of Birth</label>
+                                                <input id="dob" name="dob" type="text" class="form-control"  value="{{li[6]}}">
+                                            </div>
+                                        </div>                                        
+                                    </div>                                  
+                                    
+                                </div>
+                            </fieldset>                           
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                
+                              <button  class="btn btn-primary btn-sm" type="submit" name="Delete">Delete</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+       {% endif %} 
+    </div>
+    </div>
+    </div>
+    </div>
+    {% endblock %}

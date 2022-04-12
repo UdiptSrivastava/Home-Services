@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+{% block body %}
+<style>
+	body
+	{
+		background-color:#d8bfd8;
+	}
+</style>
+
+<section style="height: 300px;background-image: url('static/img/contact.jpg');background-size: cover;background-repeat: no-repeat;background-position: center" id="inner-headline">
+	
+	</section>
+	<section class="ftco-section">
+		<div class="containe">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 style="margin-top: -70px" class="heading-section">Feel free to reach us</h2>
+				</div>
+			</div>
+			<div style="margin-top: -40px" class="row justify-content-center">
+				<div class="col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters mb-5">
+							<div class="col-md-7">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									
+								
+				            	<p>{{msg}}</p>
+				      		
+				      		
+								<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="name">Name</label>
+													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+												</div>
+											</div>
+											<div class="col-md-4"> 
+												<div class="form-group">
+													<label class="label" for="email">Email Address</label>
+													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label class="label" for="subject">Contact</label>
+													<input type="text" class="form-control" name="cno" id="subject" placeholder="Subject">
+												</div>
+											</div>
+												
+												
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="#">Enquiry</label>
+													<textarea name="feed" class="form-control" id="message" cols="30" rows="4" placeholder="Your Feedback"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit"  name="submit" value="Send Message" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-5 d-flex align-items-stretch">
+
+								<div id="map">
+									<img style="margin-left: 9px;" height="475px" width="500px" src="{{url_for('static',filename='img/cont.jpg')}}">
+			          </div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="dbox w-100 text-center">
+			        		<div class="icon d-flex align-items-center justify-content-center">
+			        			<span class="fa fa-map-marker"></span>
+			        		</div>
+			        		<div class="text">
+				            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+				          </div>
+			          </div>
+							</div>
+							<div class="col-md-3">
+								<div class="dbox w-100 text-center">
+			        		<div class="icon d-flex align-items-center justify-content-center">
+			        			<span class="fa fa-phone"></span>
+			        		</div>
+			        		<div class="text">
+				            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+				          </div>
+			          </div>
+							</div>
+							<div class="col-md-3">
+								<div class="dbox w-100 text-center">
+			        		<div class="icon d-flex align-items-center justify-content-center">
+			        			<span class="fa fa-paper-plane"></span>
+			        		</div>
+			        		<div class="text">
+				            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+				          </div>
+			          </div>
+							</div>
+							<div class="col-md-3">
+								<div class="dbox w-100 text-center">
+			        		<div class="icon d-flex align-items-center justify-content-center">
+			        			<span class="fa fa-globe"></span>
+			        		</div>
+			        		<div class="text">
+				            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+				          </div>
+			          </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

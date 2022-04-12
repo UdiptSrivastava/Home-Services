@@ -1,0 +1,162 @@
+{% extends 'user/admin/layout.html' %}
+{% block body %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Data Tables</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>Tables</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Data Tables</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight"  >
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
+                    <div class="ibox-content">
+                        {% if li[0]=='0' %}
+                        <div class="table-responsive">
+                             <form  id="form" method="post" class="wizard-big" action="/requests/{{li[0]}}">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>User Name</th>
+                                        <th>service</th>
+                                        
+                                        <th><a href="/add_services"><button class="btn btn-success " type="button" name="Delete"><i class="fa fa-eye"></i>&nbsp;Add</button></a></th>   
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for x in data %}
+                                    <tr class="gradeX">
+                                        <td>{{x.sno}}</td>
+                                        <td>{{x.username}}</td>
+                                        <td>{{x.service}}</td>
+
+                                        {% if x.status=='1' %}
+                                        <td><a href="/requests/{{x.sno}}"><button class="btn btn-danger " type="button"><i class="fa fa-edit"></i>&nbsp;Cancelled</button></a>
+                                         {% else %}   
+
+                                         <td><a href="/requests/{{x.sno}}"><button class="btn btn-primary " type="button"><i class="fa fa-edit"></i>&nbsp;Reply</button></a>
+                                           {% endif %} 
+                                        
+                                     </td>
+                                    </tr>
+                             </tbody>
+                             {% endfor %}
+                                 {% else %}
+                                 <div class="row">
+                        
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5></h5>
+                                <div class="ibox-tools">
+
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                             <form  id="form" method="post" class="wizard-big" action="/requests/{{li[0]}}">
+                              
+                                <fieldset>
+                                    <h2 style="font-weight: bold;">Service Details</h2>
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label> Name</label>
+                                                <input id="name" name="name" type="text" class="form-control required" value="{{li[1]}}" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input id="contact" name="email" type="text" class="form-control" value="{{li[2]}}" >
+
+                                            </div>
+                                             <div class="form-group">
+                                                <label>Service request</label>
+                                                <input id="contact" name="service" type="text" class="form-control" value="{{li[3]}}" >
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Time</label>
+                                                <input id="contact" name="time" type="text" class="form-control" value="{{li[6]}}" >
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Date</label>
+                                                <input id="contact" name="date" type="text" class="form-control" value="{{li[5]}}" >
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>
+                                                    Detail
+                                                </label>
+                                                <input id="contact" name="detail" type="text" class="form-control" value="{{li[4]}}" >
+
+                                            </div>
+
+                                             <div class="form-group">
+                                                <label>Reply</label>
+                                               <textarea class="form-control" name="reply" >
+                                                   
+                                               </textarea>
+
+                                            </div>
+                                        </div>
+                                                                           
+                                    </div> 
+
+                                   
+                                    
+                                </div>
+                            </fieldset>                           
+                            <br>
+
+                            <div class="form-group row">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                
+                
+                              <button  class="btn btn-primary btn-sm" type="submit" name="Delete">Delete</button>
+                              <button  class="btn btn-primary btn-sm" type="submit" name="Reply">Reply</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
+                                 
+                             </tfoot>
+                         </table>
+                          </form>
+                     </div>
+
+                 </div>
+
+
+               
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    {% endblock %}
